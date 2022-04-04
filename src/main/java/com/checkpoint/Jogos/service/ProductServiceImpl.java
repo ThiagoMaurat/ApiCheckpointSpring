@@ -34,8 +34,6 @@ public class ProductServiceImpl implements ProductService {
         return repository.save(produto);
     }
 
-
-
     @Override
     public void delete(Integer id) {
         repository.deleteById(id);
@@ -55,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product update(String categoria, String descricao, String imagem, String preco, String sistema, Integer id, String titulo) {
+    public Product update(String categoria, String descricao, ArrayList<String> imagem , Double preco, String sistema, Integer id, String titulo) {
         Product produto = repository.findById(id).get();
         produto.setCategoria(categoria);
         produto.setDescricao(descricao);

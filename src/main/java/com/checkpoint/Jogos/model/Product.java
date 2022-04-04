@@ -1,24 +1,30 @@
 package com.checkpoint.Jogos.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String titulo;
     private String descricao;
-    private String preco;
-    private String imagem;
+    private Double preco;
+    @Autowired
+    private ArrayList<String> imagem;
     private String categoria;
     private String sistema;
 
     public Product() {
     }
 
-    public Product(int id, String titulo, String descricao, String preco, String imagem, String categoria, String sistema) {
+    public Product(Integer id, String titulo, String descricao, Double preco, ArrayList<String> imagem, String categoria, String sistema) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -28,7 +34,7 @@ public class Product {
         this.sistema = sistema;
     }
 
-    public Product(String titulo, String descricao, String preco, String imagem, String categoria, String sistema) {
+    public Product(String titulo, String descricao, Double preco, ArrayList<String> imagem, String categoria, String sistema) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.preco = preco;
@@ -37,11 +43,11 @@ public class Product {
         this.sistema = sistema;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -61,19 +67,19 @@ public class Product {
         this.descricao = descricao;
     }
 
-    public String getPreco() {
+    public Double getPreco() {
         return preco;
     }
 
-    public void setPreco(String preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
 
-    public String getImagem() {
+    public ArrayList<String> getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(ArrayList<String> imagem) {
         this.imagem = imagem;
     }
 
@@ -91,18 +97,5 @@ public class Product {
 
     public void setSistema(String sistema) {
         this.sistema = sistema;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", preco='" + preco + '\'' +
-                ", imagem='" + imagem + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", sistema='" + sistema + '\'' +
-                '}';
     }
 }
