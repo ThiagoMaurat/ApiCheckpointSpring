@@ -1,11 +1,9 @@
 package com.checkpoint.Jogos.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table
@@ -13,34 +11,34 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String titulo;
-    private String descricao;
-    private Double preco;
+    private String titles;
+    private String descriptions;
+    private Double prices;
     @Autowired
-    private ArrayList<String> imagem;
-    private String categoria;
-    private String sistema;
+    private ArrayList<String> images;
+    private String categories;
+    private String OperationSystem;
 
     public Product() {
     }
 
-    public Product(Integer id, String titulo, String descricao, Double preco, ArrayList<String> imagem, String categoria, String sistema) {
+    public Product(Integer id, String titles, String descriptions, Double prices, ArrayList<String> images, String categories, String OperationSystem) {
         this.id = id;
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.imagem = imagem;
-        this.categoria = categoria;
-        this.sistema = sistema;
+        this.titles = titles;
+        this.descriptions = descriptions;
+        this.prices = prices;
+        this.images = images;
+        this.categories = categories;
+        this.OperationSystem = OperationSystem;
     }
 
-    public Product(String titulo, String descricao, Double preco, ArrayList<String> imagem, String categoria, String sistema) {
-        this.titulo = titulo;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.imagem = imagem;
-        this.categoria = categoria;
-        this.sistema = sistema;
+    public Product(String titles, String descriptions, Double prices, ArrayList<String> images, String categories, String OperationSystem) {
+        this.titles = titles;
+        this.descriptions = descriptions;
+        this.prices = prices;
+        this.images = images;
+        this.categories = categories;
+        this.OperationSystem = OperationSystem;
     }
 
     public Integer getId() {
@@ -51,51 +49,51 @@ public class Product {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitles() {
+        return titles;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitles(String titles) {
+        this.titles = titles;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescriptions() {
+        return descriptions;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescriptions(String descriptions) {
+        this.descriptions = descriptions;
     }
 
-    public Double getPreco() {
-        return preco;
+    public Double getPrices() {
+        return prices;
     }
 
-    public void setPreco(Double preco) {
-        this.preco = preco;
+    public void setPrices(Double prices) {
+        this.prices = prices;
     }
 
-    public ArrayList<String> getImagem() {
-        return imagem;
+    public ArrayList<String> getImages() {
+        return images;
     }
 
-    public void setImagem(ArrayList<String> imagem) {
-        this.imagem = imagem;
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getCategories() {
+        return categories;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCategories(String categories) {
+        this.categories = categories;
     }
 
-    public String getSistema() {
-        return sistema;
+    public String getOperationSystem() {
+        return OperationSystem;
     }
 
-    public void setSistema(String sistema) {
-        this.sistema = sistema;
+    public void setOperationSystem(String operationSystem) {
+        this.OperationSystem = operationSystem;
     }
 }

@@ -45,22 +45,24 @@ public class ProductController {
         }
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/{id}")
     public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody Product produto) {
         try {
             return new ResponseEntity<>(productService.update(
-                  produto.getCategoria(),
-                  produto.getDescricao(),
-                    produto.getImagem(),
-                    produto.getPreco(),
-                    produto.getSistema(),
+                  produto.getCategories(),
+                  produto.getDescriptions(),
+                    produto.getImages(),
+                    produto.getPrices(),
+                    produto.getOperationSystem(),
                     produto.getId(),
-                    produto.getTitulo()), HttpStatus.OK);
+                    produto.getTitles()), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable Integer id) {
         try {

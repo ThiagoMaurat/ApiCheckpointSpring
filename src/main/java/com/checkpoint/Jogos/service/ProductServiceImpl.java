@@ -3,8 +3,6 @@ package com.checkpoint.Jogos.service;
 import com.checkpoint.Jogos.model.Product;
 import com.checkpoint.Jogos.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -45,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
         repository.findAll().forEach(produtos::add);
         List<Product> produtosFiltrados = new ArrayList<>();
         for (Product produto : produtos) {
-            if (produto.getCategoria().equals(categoria)) {
+            if (produto.getCategories().equals(categoria)) {
                 produtosFiltrados.add(produto);
             }
         }
@@ -55,12 +53,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product update(String categoria, String descricao, ArrayList<String> imagem , Double preco, String sistema, Integer id, String titulo) {
         Product produto = repository.findById(id).get();
-        produto.setCategoria(categoria);
-        produto.setDescricao(descricao);
-        produto.setImagem(imagem);
-        produto.setPreco(preco);
-        produto.setSistema(sistema);
-        produto.setTitulo(titulo);
+        produto.setCategories(categoria);
+        produto.setDescriptions(descricao);
+        produto.setImages(imagem);
+        produto.setPrices(preco);
+        produto.setOperationSystem(sistema);
+        produto.setTitles(titulo);
         return repository.save(produto);
     }
 
