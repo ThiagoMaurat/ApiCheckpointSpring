@@ -50,13 +50,13 @@ public class ProductController {
     public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody Product produto) {
         try {
             return new ResponseEntity<>(productService.update(
-                  produto.getCategories(),
-                  produto.getDescriptions(),
+                  produto.getCategorie(),
+                  produto.getDescription(),
                     produto.getImages(),
-                    produto.getPrices(),
+                    produto.getPrice(),
                     produto.getOperationSystem(),
                     produto.getId(),
-                    produto.getTitles()), HttpStatus.OK);
+                    produto.getTitle()), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

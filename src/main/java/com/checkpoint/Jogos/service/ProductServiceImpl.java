@@ -43,7 +43,7 @@ public class ProductServiceImpl implements ProductService {
         repository.findAll().forEach(produtos::add);
         List<Product> produtosFiltrados = new ArrayList<>();
         for (Product produto : produtos) {
-            if (produto.getCategories().equals(categoria)) {
+            if (produto.getCategorie().equals(categoria)) {
                 produtosFiltrados.add(produto);
             }
         }
@@ -53,12 +53,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product update(String categoria, String descricao, ArrayList<String> imagem , Double preco, String sistema, Integer id, String titulo) {
         Product produto = repository.findById(id).get();
-        produto.setCategories(categoria);
-        produto.setDescriptions(descricao);
+        produto.setCategorie(categoria);
+        produto.setDescription(descricao);
         produto.setImages(imagem);
-        produto.setPrices(preco);
+        produto.setPrice(preco);
         produto.setOperationSystem(sistema);
-        produto.setTitles(titulo);
+        produto.setTitle(titulo);
         return repository.save(produto);
     }
 

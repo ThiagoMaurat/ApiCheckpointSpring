@@ -11,33 +11,33 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String titles;
-    private String descriptions;
-    private Double prices;
+    private String title;
+    private String description;
+    private Double price;
     @Autowired
     private ArrayList<String> images;
-    private String categories;
+    private String categorie;
     private String OperationSystem;
 
     public Product() {
     }
 
-    public Product(Integer id, String titles, String descriptions, Double prices, ArrayList<String> images, String categories, String OperationSystem) {
+    public Product(Integer id, String title, String description, Double price, ArrayList<String> images, String categorie, String OperationSystem) {
         this.id = id;
-        this.titles = titles;
-        this.descriptions = descriptions;
-        this.prices = prices;
+        this.title = title;
+        this.description = description;
+        this.price = price;
         this.images = images;
-        this.categories = categories;
+        this.categorie = categorie;
         this.OperationSystem = OperationSystem;
     }
 
-    public Product(String titles, String descriptions, Double prices, ArrayList<String> images, String categories, String OperationSystem) {
-        this.titles = titles;
-        this.descriptions = descriptions;
-        this.prices = prices;
+    public Product(String title, String description, Double price, ArrayList<String> images, String categorie, String OperationSystem) {
+        this.title = title;
+        this.description = description;
+        this.price = price;
         this.images = images;
-        this.categories = categories;
+        this.categorie = categorie;
         this.OperationSystem = OperationSystem;
     }
 
@@ -49,28 +49,28 @@ public class Product {
         this.id = id;
     }
 
-    public String getTitles() {
-        return titles;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitles(String titles) {
-        this.titles = titles;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDescriptions() {
-        return descriptions;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescriptions(String descriptions) {
-        this.descriptions = descriptions;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Double getPrices() {
-        return prices;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setPrices(Double prices) {
-        this.prices = prices;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public ArrayList<String> getImages() {
@@ -81,12 +81,12 @@ public class Product {
         this.images = images;
     }
 
-    public String getCategories() {
-        return categories;
+    public String getCategorie() {
+        return categorie;
     }
 
-    public void setCategories(String categories) {
-        this.categories = categories;
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
     }
 
     public String getOperationSystem() {
