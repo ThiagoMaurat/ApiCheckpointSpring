@@ -50,7 +50,7 @@ public class ProductController {
     public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody Product produto) {
         try {
             return new ResponseEntity<>(productService.update(
-                  produto.getCategorie(),
+                  produto.getCategory(),
                   produto.getDescription(),
                     produto.getImages(),
                     produto.getPrice(),

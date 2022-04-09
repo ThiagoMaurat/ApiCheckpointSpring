@@ -16,28 +16,28 @@ public class Product {
     private Double price;
     @Autowired
     private ArrayList<String> images;
-    private String categorie;
+    private String category;
     private String OperationSystem;
 
     public Product() {
     }
 
-    public Product(Integer id, String title, String description, Double price, ArrayList<String> images, String categorie, String OperationSystem) {
+    public Product(Integer id, String title, String description, Double price, ArrayList<String> images, String category, String OperationSystem) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.images = images;
-        this.categorie = categorie;
+        this.category = category;
         this.OperationSystem = OperationSystem;
     }
 
-    public Product(String title, String description, Double price, ArrayList<String> images, String categorie, String OperationSystem) {
+    public Product(String title, String description, Double price, ArrayList<String> images, String category, String OperationSystem) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.images = images;
-        this.categorie = categorie;
+        this.category = category;
         this.OperationSystem = OperationSystem;
     }
 
@@ -81,12 +81,12 @@ public class Product {
         this.images = images;
     }
 
-    public String getCategorie() {
-        return categorie;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategorie(String categorie) {
-        this.categorie = categorie;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getOperationSystem() {
