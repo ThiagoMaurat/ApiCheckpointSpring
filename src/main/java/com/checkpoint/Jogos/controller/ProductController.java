@@ -1,6 +1,9 @@
 package com.checkpoint.Jogos.controller;
 
+import com.checkpoint.Jogos.dto.ProductDto;
+import com.checkpoint.Jogos.model.Category;
 import com.checkpoint.Jogos.model.Product;
+import com.checkpoint.Jogos.service.CategoryService;
 import com.checkpoint.Jogos.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,21 +14,21 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-    private final ProductService productService;
-
     @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    private ProductService productService;
+    @Autowired
+    private CategoryService categoryService;
+
 
     @PostMapping
-    public ResponseEntity<?> createProduct(@RequestBody Product produto) {
+    public ResponseEntity<?> createProduct(@RequestBody ProductDto productDto) {
         try {
-            return new ResponseEntity<>(productService.save(produto), HttpStatus.CREATED);
+            return new ResponseEntity<>(productService.save(productDto), HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Verifique os dados dos campos!", HttpStatus.BAD_REQUEST);
         }
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getProduct(@PathVariable Integer id) {
@@ -47,16 +50,16 @@ public class ProductController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody Product produto) {
+    public ResponseEntity<?> updateProduct(@PathVariable Integer id, @RequestBody Product product) {
         try {
             return new ResponseEntity<>(productService.update(
-                  produto.getCategory(),
-                  produto.getDescription(),
-                    produto.getImages(),
-                    produto.getPrice(),
-                    produto.getOperationSystem(),
-                    produto.getId(),
-                    produto.getTitle()), HttpStatus.OK);
+                    product.getCategory(),
+                    product.getDescription(),
+                    product.getImages(),
+                    product.getPrice(),
+                    product.getOperatingSystem(),
+                    product.getId(),
+                    product.getTitle()), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
@@ -74,10 +77,10 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/categories/{categoria}")
-    public ResponseEntity<?> getProductsByCategoria(@PathVariable String categoria) {
+    @GetMapping("/category")
+    public ResponseEntity<?> getProductsByCategory() {
         try {
-            return new ResponseEntity<>(productService.findByCategory(categoria), HttpStatus.OK);
+            return new ResponseEntity<>(categoryService.listAll(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }

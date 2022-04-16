@@ -16,29 +16,31 @@ public class Product {
     private Double price;
     @Autowired
     private ArrayList<String> images;
-    private String category;
-    private String OperationSystem;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+    private String operatingSystem;
 
     public Product() {
     }
 
-    public Product(Integer id, String title, String description, Double price, ArrayList<String> images, String category, String OperationSystem) {
+    public Product(Integer id, String title, String description, Double price, ArrayList<String> images, Category category, String operatingSystem) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.price = price;
         this.images = images;
         this.category = category;
-        this.OperationSystem = OperationSystem;
+        this.operatingSystem = operatingSystem;
     }
 
-    public Product(String title, String description, Double price, ArrayList<String> images, String category, String OperationSystem) {
+    public Product(String title, String description, Double price, ArrayList<String> images, Category category, String operatingSystem) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.images = images;
         this.category = category;
-        this.OperationSystem = OperationSystem;
+        this.operatingSystem = operatingSystem;
     }
 
     public Integer getId() {
@@ -81,19 +83,19 @@ public class Product {
         this.images = images;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
-    public String getOperationSystem() {
-        return OperationSystem;
+    public String getOperatingSystem() {
+        return operatingSystem;
     }
 
-    public void setOperationSystem(String operationSystem) {
-        this.OperationSystem = operationSystem;
+    public void setOperatingSystem(String operatingSystem) {
+        this.operatingSystem = operatingSystem;
     }
 }
