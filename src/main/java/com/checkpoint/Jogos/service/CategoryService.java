@@ -37,10 +37,11 @@ public class CategoryService {
         categoryRepository.deleteById(id);
     }
 
-    public Category update(String name, Integer id) {
-        Category category = categoryRepository.findById(id).get();
-        category.setName(name);
-        return categoryRepository.save(category);
+    public CategoryDto update(CategoryDto categoryDto, Integer id) {
+       Category category = categoryRepository.findById(id).get();
+       BeanUtils.copyProperties(categoryDto, category);
+       category = categoryRepository.save(category);
+       return new CategoryDto(category);
     }
 
 
