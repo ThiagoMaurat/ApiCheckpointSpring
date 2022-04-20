@@ -77,7 +77,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/category")
+    @GetMapping("/categories")
     public ResponseEntity<?> getProductsByCategory() {
         try {
             return new ResponseEntity<>(categoryService.listAll(), HttpStatus.OK);
